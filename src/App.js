@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Routes, Route } from "react-router-dom";
+import Home from './comps/Home';
 import './App.css';
+import ReactPlayer from 'react-player';
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <><div className='player-wrapper'>
+      
+      <ReactPlayer 
+        className='react-player'
+        url='https://www.youtube.com/watch?v=4y33h81phKU'
+        playing
+        loop
+        width='1%'
+        height='1%' />
+        
+        <Routes>
 
-export default App;
+<Route path="" element={<Home />} />
+</Routes>
+    </div></>
+
+
+        );
+        }
+
+        export default App;
