@@ -1,30 +1,37 @@
-import React from 'react';
-import { Routes, Route } from "react-router-dom";
-import Home from './comps/Home';
-import './App.css';
-import ReactPlayer from 'react-player';
+import React, { Component } from "react";
+import { Route, Link, Routes } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/App.css";
 
-function App() {
-  
-  return (
-    <><div className='player-wrapper'>
-      
-      <ReactPlayer 
-        className='react-player'
-        url='https://www.youtube.com/watch?v=4y33h81phKU'
-        playing
-        loop
-        width='1%'
-        height='1%' />
-        
-        <Routes>
+import Add from "./components/add-clip.component";
+import Chome from "./components/clip-list.component";
 
-<Route path="" element={<Home />} />
-</Routes>
-    </div></>
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <nav>
+          <ul>
+          
+            <li>
+              <Link to={"/home"}>home</Link>
+            </li>
+            <li>
+              <Link to={"/addimage"}>Add image</Link>
+            </li>
+           
+          </ul>
+        </nav>
 
+        <div className="container-body">
+          <Routes>
+            <Route exact path="/home" element={<Chome />} />
+            <Route exact path="/addimage" element={<Add />} />
+          </Routes>
+        </div>
+      </div>
+    );
+  }
+}
 
-        );
-        }
-
-        export default App;
+export default App
