@@ -1,7 +1,6 @@
 class KafkaService {
     url = 'https://nodecons-service-bryanvre.cloud.okteto.net';
    
-   
     reaction = async (name) => {
      await fetch(this.url + 'like?name=' + name, {
         method: 'GET',
