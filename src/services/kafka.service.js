@@ -1,4 +1,3 @@
-const BooksDataServiceInstance= new BooksDataService();
 
 class KafkaService {
    //url = 'https://your-kafka-express-service-kafka-adsoftsito.cloud.okteto.net/';
@@ -22,7 +21,7 @@ class KafkaService {
  
  }
  // eslint-disable-next-line
- export default BooksDataServiceInstance
+ export default new KafkaService();
    
    
  
