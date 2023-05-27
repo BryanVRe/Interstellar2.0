@@ -1,11 +1,12 @@
 .contenedorDeMiniatura {
-  width: 60%;
+  width: 55%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 100px 50px;
 }
+
 
 .miniatura {
   width: 30%; /* para mostrar 3 tarjetas por fila */

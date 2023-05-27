@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> a9928c3fab725dbcec690387fda4d9d2ff0f8e09
 #manifest
 apiVersion: apps/v1
 kind: Deployment
@@ -37,8 +34,3 @@ spec:
   selector:
     app: {model_name}-server
   type: LoadBalancer
-<<<<<<< HEAD
-=======
-
-  
->>>>>>> a9928c3fab725dbcec690387fda4d9d2ff0f8e09
