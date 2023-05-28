@@ -64,7 +64,7 @@ const signInWithFacebook = () => {
 return (
   <>
   <div class="contenedor" >
-    <h1>Fakestagram</h1>
+    <h1>Interstellar</h1>
     </div>    
     <div class="contenedor2" >
       <h1>INICIAR SESION </h1>
