@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { Route, Link, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/App.css";
-
 import Add from "./components/add-clip.component";
 import Chome from "./components/clip-list.component";
+import Login from './components/Login';
+
 
 class App extends Component {
   render() {
@@ -19,12 +20,14 @@ class App extends Component {
             <li>
               <Link to={"/addimage"}>Add image</Link>
             </li>
-           
+            
           </ul>
         </nav>
 
         <div className="container-body">
           <Routes>
+            <Route path="/" element={<Login/>}/>
+            <Route path="/login" element={<Login/>}/>
             <Route exact path="/home" element={<Chome />} />
             <Route exact path="/addimage" element={<Add />} />
           </Routes>
