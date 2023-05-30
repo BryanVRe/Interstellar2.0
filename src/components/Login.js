@@ -6,7 +6,6 @@ import chome from "./components/clip-list.component";
 
 function Login() {
 
-function Signin() {
   const [email, setEmail] = useState('');
 
   const handleSignInWithGoogle = () => {
