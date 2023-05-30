@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { auth,provider} from '../config';
 import { signInWithPopup, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import chome from "./clip-list.component";
 
 function Login() {
 
@@ -58,12 +57,11 @@ function Login() {
   return (
     <div>
       {email ? (
-        <div>
+        
           <h2>Bienvenido, {email}!</h2>
           <button className="boton-logout" onClick={handleSignOut}>
             Logout
           </button>
-          <chome />
         </div>
       ) : (
         <div>
