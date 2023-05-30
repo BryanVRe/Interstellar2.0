@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router';
 import { auth,provider} from '../config';
 import { signInWithPopup, signInWithEmailAndPassword, signOut } from "firebase/auth";
-
+import
 function Login() {
-const [email, setEmail] = useState('');
+import chome from "./components/clip-list.component";
 
-    const handleSignInWithGoogle = () => {
+function Signin() {
+  const [email, setEmail] = useState('');
+
+  const handleSignInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then((userCredential) => {
         const userEmail = userCredential.user.email;
@@ -53,26 +56,28 @@ const [email, setEmail] = useState('');
     }
   }, []);
 
-return (
-  <>
-  <div class="contenedor" >
-    <h1>Interstellar</h1>
-    </div>    
-    <div class="contenedor2" >
-      <h1>INICIAR SESION </h1>
+  return (
+    <div>
+      {email ? (
+        <div>
+          <h2>Bienvenido, {email}!</h2>
+          <button className="boton-logout" onClick={handleSignOut}>
+            Logout
+          </button>
+          <chome />
+        </div>
+      ) : (
+        <div>
+          <button className="boton-login" onClick={handleSignInWithGoogle}>
+            Sign in with Google
+          </button>
+          <button className="boton-email" onClick={handleSignInWithEmail}>
+            Sign in with Email
+          </button>
+        </div>
+      )}
     </div>
-    <div class="contenedor3" >
-      <button class='button3' onClick={handleSignInWithGoogle}>
-        GOOGLE
-      </button>
-      <button class='button2'onClick={handleSignInWithEmail}>
-        Email
-      </button>
-    </div>
-
-  </>
- 
-);
+  );
 }
 
 export default Login;
