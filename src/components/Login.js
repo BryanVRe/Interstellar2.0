@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-
-import { auth,provider} from '../config';
+import { auth, provider } from "../config";
 import { signInWithPopup, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
-function Login() {
+import Ventas from "./clip-list.component";
 
+function Signin() {
   const [email, setEmail] = useState('');
 
   const handleSignInWithGoogle = () => {
@@ -57,11 +57,12 @@ function Login() {
   return (
     <div>
       {email ? (
-        
+        <div>
           <h2>Bienvenido, {email}!</h2>
           <button className="boton-logout" onClick={handleSignOut}>
             Logout
           </button>
+          <Ventas />
         </div>
       ) : (
         <div>
@@ -77,4 +78,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signin;
