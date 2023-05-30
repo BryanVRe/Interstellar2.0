@@ -34,28 +34,28 @@ function ReactionsComponent() {
 ></div>
       <div class="reaction reaction-haha"onClick={(e) => {
                     e.preventDefault();
-                    saveLike(e, 1)
+                    saveLike(e, 1, "haha")
                       
                     }
                 } 
 ></div>
       <div class="reaction reaction-wow"onClick={(e) => {
                     e.preventDefault();
-                    saveLike(e, 1)
+                    saveLike(e, 1, "wow")
                       
                     }
                 } 
 ></div>
       <div class="reaction reaction-sad"onClick={(e) => {
                     e.preventDefault();
-                    saveLike(e, 1)
+                    saveLike(e, 1, "sad")
                       
                     }
                 } 
 ></div>
       <div class="reaction reaction-angry"onClick={(e) => {
                     e.preventDefault();
-                    saveLike(e, 1)
+                    saveLike(e, 1, "angry")
                       
                     }
                 } 
