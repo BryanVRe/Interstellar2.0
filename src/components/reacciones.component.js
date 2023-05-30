@@ -3,7 +3,7 @@ import '../styles/clip.css'
 import KafkaService from "../services/kafka.service";
 
 function ReactionsComponent() {
-  function saveLike(e, status) {
+  function saveLike(e, status, reactions) {
   
      let data = {
        id: 0,
@@ -12,7 +12,7 @@ function ReactionsComponent() {
   
      console.log(JSON.stringify(data));
   
-     KafkaService.reaction("i-love-adsoftsito");
+     KafkaService.reaction("usuario", "objeto", reactions);
      e.preventDefault();
  }
 
@@ -20,14 +20,14 @@ function ReactionsComponent() {
     <div class="reactions">
       <div class="reaction reaction-like" onClick={(e) => {
                     e.preventDefault();
-                    saveLike(e, 1)
+                    saveLike(e, 1, "like")
                       
                     }
                 } 
 ></div>
       <div class="reaction reaction-love"onClick={(e) => {
                     e.preventDefault();
-                    saveLike(e, 1)
+                    saveLike(e, 1, "love")
                       
                     }
                 } 
