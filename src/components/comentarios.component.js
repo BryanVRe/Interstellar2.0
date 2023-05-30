@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import '../styles/clip.css'
 import KafkaService from "../services/kafka.service";
 
