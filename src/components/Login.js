@@ -4,12 +4,6 @@ import { auth,provider} from '../config';
 import { signInWithPopup, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 function Login() {
- const [email, setEmail] = useState('');
-  let navigate = useNavigate(); 
-  const routeChange = () =>{ 
-      let path = '/home'; 
-      navigate(path);
-  }
 
     const handleSignInWithGoogle = () => {
     signInWithPopup(auth, provider)
