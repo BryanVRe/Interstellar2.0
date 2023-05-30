@@ -4,6 +4,7 @@ import { auth,provider} from '../config';
 import { signInWithPopup, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 function Login() {
+const [email, setEmail] = useState('');
 
     const handleSignInWithGoogle = () => {
     signInWithPopup(auth, provider)
