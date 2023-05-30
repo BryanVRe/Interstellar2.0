@@ -67,7 +67,7 @@ return (
       <h1>INICIAR SESION </h1>
     </div>
     <div class="contenedor3" >
-      <button class='button3' onClick={signInWithGoogle}>
+      <button class='button3' onClick={handleSignInWithGoogle}>
         GOOGLE
       </button>
       <button class='button2'onClick={handleSignInWithEmail}>
