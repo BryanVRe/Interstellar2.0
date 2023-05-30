@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router';
 import { auth,provider} from '../config';
 import { signInWithPopup, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import
-function Login() {
 import chome from "./components/clip-list.component";
+
+function Login() {
 
 function Signin() {
   const [email, setEmail] = useState('');
