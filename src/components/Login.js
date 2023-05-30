@@ -1,65 +1,62 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router';
-import { auth } from '../config';
-import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider} from 'firebase/auth';
-
+import { auth,provider} from '../config';
+import { signInWithPopup, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 function Login() {
-
+ const [email, setEmail] = useState('');
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
       let path = '/home'; 
       navigate(path);
   }
 
-  const signInWithGoogle = () => {
-      const provider = new GoogleAuthProvider();
-      signInWithPopup(auth, provider)
-      .then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-
-      console.info(token);
-      console.info(user);
-
-      routeChange();
-      }).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.email;
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      console.info(errorCode);
-      console.info(errorMessage);
-      console.info(email);
-      console.info(credential);
+    const handleSignInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((userCredential) => {
+        const userEmail = userCredential.user.email;
+        setEmail(userEmail);
+        localStorage.setItem("email", userEmail);
+      })
+      .catch((error) => {
+        console.log("Error occurred during sign-in with Google:", error);
       });
-  }
+  };
 
-const signInWithFacebook = () => {
-  const provider = new FacebookAuthProvider();
-  signInWithPopup(auth, provider)
-  .then((result) => {
-    const user = result.user;
+  const handleSignInWithEmail = () => {
+    const email = prompt('Ingrese su correo electrónico:');
+    const password = prompt('Ingrese su contraseña:');
 
-    const credential = FacebookAuthProvider.credentialFromResult(result);
-    const accessToken = credential.accessToken;
+    if (email && password) {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const userEmail = userCredential.user.email;
+          setEmail(userEmail);
+          localStorage.setItem("email", userEmail);
+        })
+        .catch((error) => {
+          console.log("Error occurred during sign-in with email and password:", error);
+        });
+    }
+  };
 
-    console.info(accessToken);
-    console.info(user);
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    const email = error.email;
-    const credential = FacebookAuthProvider.credentialFromError(error);
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        setEmail('');
+        localStorage.removeItem("email");
+      })
+      .catch((error) => {
+        console.log("Error occurred during sign-out:", error);
+      });
+  };
 
-    console.info(errorCode);
-    console.info(errorMessage);
-    console.info(email);
-    console.info(credential);
-  });
-}
+  useEffect(() => {
+    const storedEmail = localStorage.getItem('email');
+    if (storedEmail) {
+      setEmail(storedEmail);
+    }
+  }, []);
 
 return (
   <>
@@ -73,8 +70,8 @@ return (
       <button class='button3' onClick={signInWithGoogle}>
         GOOGLE
       </button>
-      <button class='button2'onClick={signInWithFacebook}>
-        FACEBOOK
+      <button class='button2'onClick={handleSignInWithEmail}>
+        Email
       </button>
     </div>
 
