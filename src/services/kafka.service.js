@@ -5,7 +5,7 @@ class KafkaService {
   
   
   reaction = async (uId, oId, rId) => {
-    await fetch(this.url + '/reactions?userId=' + uId+'&objectId='+oId +'&reactionId='+rId, {
+    await fetch(this.url + '/reaction?userId=' + uId+'&objectId='+oId +'&reactionId='+rId, {
       method: 'GET',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
