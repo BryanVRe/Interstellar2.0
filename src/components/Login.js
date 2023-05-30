@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { auth, provider } from "../config";
 import { signInWithPopup, signInWithEmailAndPassword, signOut } from "firebase/auth";
-
+import "../styles/App.css";
 import Ventas from "./clip-list.component";
 
 function Signin() {
@@ -55,7 +55,7 @@ function Signin() {
   }, []);
 
   return (
-    <div>
+   <div>
       {email ? (
         <div>
           <h2>Bienvenido, {email}!</h2>
@@ -66,12 +66,20 @@ function Signin() {
         </div>
       ) : (
         <div>
-          <button className="boton-login" onClick={handleSignInWithGoogle}>
+           <div class="contenedor" >
+      <h1>Interstellar</h1>
+    </div>    
+    <div class="contenedor2" >
+      <h1>INICIAR SESION </h1>
+    </div>
+    <div class="contenedor3" >
+          <button class='button3' onClick={handleSignInWithGoogle}>
             Sign in with Google
           </button>
-          <button className="boton-email" onClick={handleSignInWithEmail}>
+          <button class='button2'onClick={handleSignInWithEmail}>
             Sign in with Email
           </button>
+        </div>
         </div>
       )}
     </div>
@@ -79,3 +87,4 @@ function Signin() {
 }
 
 export default Signin;
+
