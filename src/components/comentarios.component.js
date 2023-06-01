@@ -23,7 +23,7 @@ const CommentBox = () => {
         }
     };
     
-    saveComment = (status, comment) => {
+    const saveComment = (status, comment) => {
     let data = {
       id: 0,
       status: status
