@@ -18,7 +18,7 @@ const CommentBox = () => {
             setComments([...comments, newCommentObj]);
             setNewComment("");
             setShowForm(false);
-            this.saveComment(1 , comments);
+            saveComment(1 , comments);
             
         }
     };
