@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import KafkaService from "../services/kafka.service";
 
 const CommentBox = () => {
     const [comments, setComments] = useState([]);
@@ -17,8 +18,22 @@ const CommentBox = () => {
             setComments([...comments, newCommentObj]);
             setNewComment("");
             setShowForm(false);
+            this.saveComment(1 , comments);
+            
         }
     };
+    
+    saveComment = (status, comment) => {
+    let data = {
+      id: 0,
+      status: status
+    };
+ 
+    console.log(JSON.stringify(data));
+ 
+    KafkaService.comment(this.props.email, this.props.id, comments);
+  }
+
 
     return (
         <div className="comment-box">
