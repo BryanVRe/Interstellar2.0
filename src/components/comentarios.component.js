@@ -31,7 +31,7 @@ const CommentBox = () => {
  
     console.log(JSON.stringify(data));
  
-    KafkaService.comment(usuario,id , comments);
+    KafkaService.comment("helo","id", comments);
   }
 
 
